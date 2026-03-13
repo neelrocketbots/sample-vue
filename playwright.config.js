@@ -43,6 +43,8 @@ export default defineConfig({
     headless: !!process.env.CI,
   },
 
+  globalTeardown: './e2e/coverage.js',
+
   /* Configure projects for major browsers */
   projects: [
     {

@@ -1,16 +1,18 @@
 name: API workflow
 
 on: [push, pull_request]
- 
+
 jobs:
   build:
     runs-on: ubuntu-latest
     name: Upload coverage reports to Codecov
     steps:
-    - uses: actions/checkout@v4
-    - name: Run tests and collect coverage
-      run: npm run test:e2e:coverage
-    - name: Upload coverage reports to Codecov with GitHub Action
-      uses: codecov/codecov-action@v5
-      env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests and collect coverage
+        run: npm run test:e2e:coverage
+      - name: Upload coverage reports to Codecov with GitHub Action
+        uses: codecov/codecov-action@v5
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

@@ -2,6 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import Test from './components/TestComp.vue'
+import CounterComp from './components/CounterComp.vue'
 </script>
 
 <template>
@@ -11,7 +12,7 @@ import Test from './components/TestComp.vue'
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
       <Test />
-
+      <CounterComp />
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>

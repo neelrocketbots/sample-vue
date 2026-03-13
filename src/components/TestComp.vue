@@ -5,9 +5,8 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
 
-onMounted(() => {
-  console.log('Test mounted')
-})
+const testLog = () => {
+  console.log('Test log')
+}
 </script>

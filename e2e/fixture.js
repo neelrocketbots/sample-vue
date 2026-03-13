@@ -10,12 +10,13 @@ export const test = baseTest.extend({
     await context.close()
   },
   page: async ({ page }, use, testInfo) => {
-    if (process.env.COVERAGE === 'true') {
+    const coverageSupported = process.env.COVERAGE === 'true' && page.coverage !== null
+    if (coverageSupported) {
       await page.coverage.startJSCoverage({ resetOnNavigation: false })
     }
 
     await use(page)
-    if (process.env.COVERAGE !== 'true') {
+    if (!coverageSupported) {
       return
     }
 

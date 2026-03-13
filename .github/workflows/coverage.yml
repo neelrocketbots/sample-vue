@@ -12,6 +12,8 @@ jobs:
         run: npm install
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
+      - name: Build app
+        run: npm run build
       - name: Run tests and collect coverage
         run: npm run test:e2e:coverage
       - name: Upload coverage reports to Codecov with GitHub Action
